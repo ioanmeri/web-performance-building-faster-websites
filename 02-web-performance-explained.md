@@ -112,7 +112,7 @@ JavaScript from 52kb to 391kb (increase 651%)
 
 Images from 100kb to almost 1Mb (increase 775%)
 
-### Why this matter when lots of people have multi gb data bands
+### Why this matter when lots of people have multi Gb data bands
 
 - Many countries have Pay-as-you-go (PAYG) system
 
@@ -125,5 +125,92 @@ In addition to the cost factor, websites such as government information portals,
 Moral responsibility to look after users by optimizing our websites performance
 
 Don't burden users with **unnecessary costs** or **delayed access** to important information.
+
+---
+
+## Search Engine Optimization
+
+Since 2010, Google has considered speed a ranking factor when calculating organic listing on desktop.
+
+Later, in 2018, Google announced they would extend this ranking factor to searches run on mobile.
+
+A slow loading website can negatively impact SEO and lead to lower organic rankings on search engine results pages.
+
+organic = not ad driven
+
+Did it work? Well, yes.
+
+- Slowest 1/3 of websites got 15 / 20 % faster
+
+- Improvements in 95% of countries.
+
+- 20% less abandonment for navigation from search
+
+When companies focus on web performance, they see improvements to organic traffic.
+
+> Rebuilding Pinterest pages for performance resulted in a 40% decrease in wait itme, a 15% increase in SEO traffic and a 15% increase in conversion rate to signup.
+
+> Carousell reduced page load time by 65% and saw a 63% increase in organic traffic, a 3x increase in advertising click-thru and a 46% increase in first-time chatters.
+
+---
+
+## Improving Conversions
+
+An e commerce business it's goal is to generate products sales
+
+For an agency offering designing consultation services to other business it's goal is to generate interest, and ultimately leads.
+
+For a government the goal should be to provide access to accurate information and systems for citizens.
+
+Every website has goals and when a goal is met, that's generally **what's called a conversion**
+
+The more conversions the business generates, the more revenue it generates.
+
+When users first visit your website it's a critical time in the sales journey. Their experiences here, good or bad will impact the chances that generate a conversion.
+
+The first load, it's an uncached one. So every asset must be downloaded by the browser in full. This means **a user is experiencing a website load for the first time, under the worst possible conditions**.
+
+So if
+
+- the hero images don't display fast enough
+- the page is constantly jumping around, as elements loaded in
+- call to action buttons aren't interactive when the user first clicks
+
+critical information may be missed and conversion opportunities may be lost.
+
+> Only 2% of the users convert on the first visit
+
+This means, it's important the repeated visits are loading experiences even faster with:
+
+- cache
+- service workers
+
+> 50% experience slowdown during traffic, of those 82% have had website access prevented
+
+> 50% will abandon, 1 in 5 users won't return
+
+Radware while conducting a study found that if pages aren't fast, everything suffers.
+
+- Content: "boring"
+- Visual design "tacky" and "confusing"
+- Navigation "frustrating" and "hard-to-navigate"
+
+Overall, if a website:
+
+- Loads fast
+- Responsive to user input
+- Usable on many device types & network conditions
+
+then it provides a:
+
+- Reliable, positive experience
+- Doesn't block conversions
+- Competitive advantage
+
+> Ancestory.com saw a 7% increase in conversions after improving render time by 68%, page weight by 46% and load time by 64%.
+
+> Staples reduced median homepage load time by 1 second and reduced load time for th 98th percentile by 6 seconds. As a result, they saw a 10% increase in their conversion rate.
+
+So the relationship between web performance and site performance is pretty clear. The faster your website, the more revenue you can expect to generate.
 
 ---
