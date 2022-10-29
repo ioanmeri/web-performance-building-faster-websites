@@ -214,3 +214,54 @@ then it provides a:
 So the relationship between web performance and site performance is pretty clear. The faster your website, the more revenue you can expect to generate.
 
 ---
+
+## Perceived performance
+
+When it comes to web performance, the user's perception of how fast the website loads can be more important than how fast it actually loads.
+
+**Performance isn't about mathematics**
+
+**Performance is about perception**
+
+**Example**
+
+if Objective Load time of amazon is 30 seconds
+
+and Psychological Load Time is 5 seconds
+
+then the latter psychological metric overrides the former objective one.
+
+The customer is always right
+
+This is called optimizing the perceived performance.
+
+The human brain perceives time in a different way from a clock, which tracks what we'd call objective.
+
+It can fluctuate depending on metrics such as age:
+
+- age
+- anxiety levels
+- time of day
+
+this is called **Psychological Time**
+
+There are two typical phases:
+
+- Active Phase
+  - is a period of await where the user's mind is engaged, e.g. while riding a bike, solving a puzzle, watching TV, or thinking in depth about something
+- Passive Phase
+  - characterized by the opposite, periods of inactivity where the user isn't engaged and has no choice or control of awaiting times, e.g. waiting for a train to arrive, waiting for your luggage at the airport, waiting for the bill at a restaurant
+
+Users don't like to wait and when they complain that is taking to long this generally refers to the length of the passive wait.
+
+There is two main techniques to increase the active phase:
+
+- Pre-emptive Start
+  - which involves beginning the wait in the active phase and maintaining it for as long as possible before switching to the passive phase
+  - this way even if though the total wait times remain the same, the users perception of the wait time is reduced, because for the first phase of the wait they where occupied
+- Early Completion
+  - turning a passive wait into an active wait, as soon as possible, by giving the users something to engage with
+
+In addition to improving the objective performance of a website, we can also improve it's perceived performance.
+
+---
