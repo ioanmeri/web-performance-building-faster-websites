@@ -97,3 +97,33 @@ WPO stats
 > 53% of visits are abandoned if a mobile site takes longer than 3 seconds to load.
 
 ---
+
+## Looking after users
+
+The median mobile page weight, has steadily since 2011 from 150kb to 1.8Mb today (increase 1000% +)
+
+The size of HTML on **mobile** has remained relatively consistent over the past decade (19kb to 26kb, 30% increase)
+
+CSS from 12kb to 60kb (increase 400%)
+
+Fonts from 57kb to 102kb (increase 79%)
+
+JavaScript from 52kb to 391kb (increase 651%)
+
+Images from 100kb to almost 1Mb (increase 775%)
+
+### Why this matter when lots of people have multi gb data bands
+
+- Many countries have Pay-as-you-go (PAYG) system
+
+- Small data plans
+
+- International roaming charged by mb
+
+In addition to the cost factor, websites such as government information portals, hospitals and crisis centers, must absolutely serve a fast user experience.
+
+Moral responsibility to look after users by optimizing our websites performance
+
+Don't burden users with **unnecessary costs** or **delayed access** to important information.
+
+---
