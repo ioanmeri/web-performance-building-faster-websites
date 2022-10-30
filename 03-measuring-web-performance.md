@@ -138,3 +138,88 @@ window.addEventListener("load", (event) => {
 which if fired once the page has been rendered and any external resources have been loaded.
 
 ---
+
+## About Measuring Web Performance
+
+Can split it into to big categories
+
+- Loading Performance
+
+- Rendering Performance
+
+**Loading Performance**
+
+Is the area of web performance optimization, focusing around optimizing the delivery of assets from a server to the browser.
+
+Concerted with:
+
+- File sizes
+- Asset Load Order
+- No Unused Assets/code
+- No Blocking Scripts
+
+**Rendering Performance**
+
+Focuses on optimizing how the browser uses the downloaded assets to render the website and handle any sub sequent interactions.
+
+- CSS Style Calculations
+- Unnecessary Reflows
+- Bad Event Listeners
+
+### Measuring Web Performance
+
+can use:
+
+- Lab Data
+- Field Data
+
+### Lab Data
+
+- Captured using synthetic testing
+- In a controlled, simulated environment
+- Full control over device type, network conditions etc
+- e.g. Google Lighthouse, Webpagetest
+
+#### Advantages
+
+- Captures lots of data
+- Can measure websites still in development
+- Can measure competitors
+- Prevents regressions
+
+#### Disadvantages
+
+- Doesn't capture the complete picture, only snapshots
+- Unable to directly compare against other data points
+
+### Field Data
+
+- Data collected from real users
+- AKA: Real User Monitoring (RUM)
+- e.g. Google Analytics
+- Captures the real world user experience, quirks and all
+
+#### Advantages
+
+- Monitoring performance during high traffic events
+- Collects user data
+  - browser, device, OS, location
+- Can directly cross-reference web performance against other data points
+  - bound rate, page views, time on site, conversion rate
+
+#### Disadvantages
+
+- Not suited for debugging performance issues
+- Can't benchmark against competitors
+- Can't effectively measure websites in development
+
+### Factors which impact page load
+
+- User's Location
+- Network Traffic
+- Network Speed
+- Device Power
+
+Web performance is a collection of all users loading experiences.
+
+---
