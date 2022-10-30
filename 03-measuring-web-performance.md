@@ -223,3 +223,41 @@ can use:
 Web performance is a collection of all users loading experiences.
 
 ---
+
+## Loading Performance Metrics
+
+When measuring Web Performance there are many different types of metrics we can track:
+
+- Time to First Byte
+- First Paint, First Contentful Paint
+- Speed Index, Largest Contentful Paint
+- Time to Interactive, Time to First CPU Idle
+- Total Blocking Time
+- First Input Delay
+- Load Time
+- Cumulative layout Shift
+
+These all generally fall within the following categories:
+
+- **Quantity-Based** Metrics
+- **Milestone** Metrics
+
+### Quantity Based Metrics
+
+Measure things such as:
+
+- the number of HTTP requests
+- the size of the page in bytes
+- the number of images loaded
+
+basically anything you can count, used for long-term monitoring and reveal trends or highlights problems for 3rd party scripts for example.
+
+### Milestone Metrics
+
+Measure how long it takes the browser to reach a specific phase of loading process, for instance:
+
+- how long the server takes to respond
+- how long it takes the browser to start rendering content
+- how long it takes for that content to become interactive, when JS is completed.
+
+helps us earn more about overall user experience, require a little more elaboration.
