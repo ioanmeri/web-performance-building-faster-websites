@@ -261,3 +261,129 @@ Measure how long it takes the browser to reach a specific phase of loading proce
 - how long it takes for that content to become interactive, when JS is completed.
 
 helps us earn more about overall user experience, require a little more elaboration.
+
+---
+
+## Time to First Byte (TTFB)
+
+Used to measure the responsiveness of the web server. How long it takes the web server to respond to the browser's first request.
+
+Bad server config or backend coding can be responsible for any poor performance in this area.
+
+Also, the further you are from the website server geographically, the longer it takes to respond.
+
+---
+
+## First Paint / First Contentful Paint
+
+AKA Start Render measures how long all of the Critical Rendering Path takes to complete.
+
+How long it takes between when the user types in the web address and presses enter to when bits of website content, however small, first begin to appear in the browser window.
+
+**First Contentful Paint**
+
+Like First Paint, it measures when the first bits of content are rendered to the screen but makes a distinction that the content must be useful to the user.
+
+This means for the metric to trigger, the new content must be
+
+- text
+- images (or background-image)
+- svg
+- canvas (non white)
+
+---
+
+## Speed Index / Largest Contentful Paint
+
+In the past, it is been common to track a website speed by measuring when the browser fires events such as DOMContentLoaded and load.
+
+These metrics aren't a very good indicator of the actual end user experience
+
+If the browser has visible content in the view port then the user can meaningfully interact with the website and doesn't have to wait for the DOMContentLoaded the whole page.
+
+Speed Index tries to fakes this inaccuracy by measuring the average time it takes for only the viewport content to be rendered, with any below the fold elements now safely ignored.
+
+This means the mobile devices will always have a lower speed index, simply because the is less viewport content to render.
+
+**Largest Contentful Paint**
+
+Similar to speed index, identify when the main content of the page has loaded
+
+Looks when the largest image, or text block is visible within the view port.
+
+---
+
+## Time to Interactive / Time to First CPU Idle
+
+Measures the point in the loading process, where the page is fully interactive.
+
+The page must be complete enough to facilitate interaction, this means the page must be displaying useful content which were tracking using FCP.
+
+When the page is **FULLY** interactive
+
+**Time to First CPU Idle**
+
+AKA First Interactive
+
+When the page is **FIRST** interactive
+
+---
+
+## Total Blocking Time
+
+Another JS oriented performance metric
+
+It measures the amount of **time** between **between First Contentful Paint** and the **Time To Interactive**
+
+where the browser was too busy executing JavaScript to accept input
+
+---
+
+## First Input Delay
+
+or Input Latency, represents the time from when the user is first able to interact with elements on the page to the point when these elements are able to respond to those interactions.
+
+Which depending on what the browser is doing isn't always immediately.
+
+This is because browsers are single treaded.
+
+So, if page content has finished rendering, or the browser is still busy executing JS, any user input during this time will not be registered, as the browser doesn't have the resources available to respond
+
+Poor First Input Delay = User's frustration
+
+Interaction snappier or unresponsive.
+
+---
+
+## Load Time
+
+depending on the tool can be:
+
+- Browser onLoad event fired
+- onLoad event fired + no more network activity
+
+less important because it is not an accurate representation of the users own experience.
+
+E.g.
+
+Speed Index: 3sec
+
+Time to Interactive: 5sec
+
+Load Time: 15sec
+
+The website is usable at 5sec not 15sec
+
+---
+
+## Cumulative Layout Shift
+
+Often when the website is loading, during the render phase, the layout of the page can suddenly shift as new elements re introduced.
+
+Very frustrating for a user trying to interact with the page.
+
+Cumulative Layout Shift measures these unstable elements and how often they trigger unnecessary reflows.
+
+The lower the score the better.
+
+---
