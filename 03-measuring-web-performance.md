@@ -387,3 +387,35 @@ Cumulative Layout Shift measures these unstable elements and how often they trig
 The lower the score the better.
 
 ---
+
+## Performance Budgets
+
+Once optimization is put into place, it's important to prevent it to regression. This can be done through establishing what's called a **Performance Budget**
+
+A Performance Budget is the idea that for each metric, there is a threshold which you cannot fall below.
+
+What should the Performance Budget be??
+
+Most businesses aren't ready for challenges, bur rather need safeguards.
+
+Performance budget metrics should be: Whatever the live website performance metrics are right now.
+
+Metrics should never get worse, only better.
+
+By setting your performance budget for each metric to be the worse it's been over the last 2-week period, you creating a safety net, to keep the website from progressing further.
+
+| Metric        | First paint | First Meaningful Paint | Speed Index | # 3rd party requests |
+| ------------- | ----------- | ---------------------- | ----------- | -------------------- |
+| 6 Weeks Ago   | 4.0s        | 4.6s                   | 5.2s        | 50                   |
+| 4 Weeks Ago   | 3.8s        | 4.4s                   | 5.0s        | 46                   |
+| 2 Weeks Ago   | 4.1s        | 4.5s                   | 5.5s        | 55                   |
+| Current Worst | 2.9s        | 3.3s                   | 4.0s        | 37                   |
+| Budgeted      | 3.8s        | 4.4s                   | 5.0s        | 46                   |
+
+What happens if the metrics have gotten worse?
+
+The the performance budget stays the same and you put in the work to get it back on track
+
+Following this method, you will find yourself making slow incremental improvements to the performance of your website. Whilst making sure that you or any other developer don't make things worse.
+
+---
