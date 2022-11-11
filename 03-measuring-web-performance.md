@@ -419,3 +419,35 @@ The the performance budget stays the same and you put in the work to get it back
 Following this method, you will find yourself making slow incremental improvements to the performance of your website. Whilst making sure that you or any other developer don't make things worse.
 
 ---
+
+## Performance Goals
+
+**How fast do users expect websites to load?**
+
+In 1999, 8.0s
+
+In 2006 should be 4.0s otherwise e-commerce risk negative brand perception and significant lose in overall sale.
+
+In 2009, 2.0s to new load threshold.
+
+49% Users expect <2 Seconds load time.
+
+18% expect Instant load.
+
+**What does instant look like as an objective time metric?**
+
+It's a general agreement that **100ms - 200ms** is the maximum possible wait time to perceived as instant, where the user can barely if not at all notice a delay.
+
+Google has set this as the ideal load time. But at the moment this is not realistic target for most websites.
+
+But load time isn't the best metric to represent website speed anyway, it's more about perceived performance metrics such as:
+
+- Speed Index
+- First Contentful Paint
+- time to Interactive
+
+these are the ones that really count.
+
+Google recommends that mid-range mobile devices on slow 3d, aims complete paint within 2-3 seconds and have it become interactive under 5.0 seconds.
+
+---
