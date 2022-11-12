@@ -451,3 +451,109 @@ these are the ones that really count.
 Google recommends that mid-range mobile devices on slow 3d, aims complete paint within 2-3 seconds and have it become interactive under 5.0 seconds.
 
 ---
+
+## Establishing testing conditions
+
+We need to use relevant testing conditions to make sure the data we gather is meaningful and accurate.
+
+We need to consider:
+
+- Device Type
+- Network Speed
+- Test Location
+- Web Browsers
+
+It's important to test on the conditions which are representative of your users.
+
+---
+
+### Device Type
+
+A good first step is to check your Google Analytics account
+
+- Basic data on the types of devices being used to access your website
+- But may not provide a complete picture, because users may be abandoning the website because loading is too slow
+
+If Google analytics not available, another way is to look what is more common in the general population.
+
+- Android Device
+- 2 years or older
+- Sub €250
+
+Consider testing older devices directly, if not possible use CPU throttling and lighthouse so the testing device is more inline with your representative device.
+
+---
+
+### Network Speed
+
+Google Analytics doesn't provide any meaning data on the connection speeds of users visiting your website.
+
+Alike we devices, we have to use research resources.
+
+Optimize for the worst possible scenario.
+
+If you are targeting areas like:
+
+**North America / Europe** start with a
+
+- Throttled 3G
+- 300ms round trip delay
+- 1.6mpbs down
+- 0.8mpbs up
+
+before shifting to faster connections
+
+**Everywhere Else**
+
+- Start at 2G
+- 280kbps down
+- 256kbps up
+- 800ms round trip delay
+
+---
+
+### Testing Location
+
+The further the user is from the server:
+
+- More latency
+- Longer request / response times
+
+For example: a US hosted website visited by US users, will yield much faster TTFB metric than a user on the other side of the world.
+
+This is why **CDNs** are so widespread.
+
+By creating copies of your website, on multiple servers on the world
+
+- connections times reduce
+- assets can be transferred sooner
+
+So where should test be run from?
+
+E.g. for US based website which is targeting US residents. The decision is US.
+
+E.g. for websites that targets world wide audience however. Unless you have access to financial data you want to know which countries are important markets for the business. In this instance,is a question which marketing or stakeholders may have to answer for you.
+
+Alternatively, you could check the countries which provide the most visits which can be retrieved from Google Analytics via the Audience > geo > location
+
+In tools, such as WebPageTest you can test from devices located throughout the world.
+
+If that's not option, the next best solution could be a VPN located within the target country
+
+---
+
+### Browser
+
+We Google Analytics, you can find out which browsers are using under the Audiences > Technology > Browser & OS
+
+If there is one that's you representative browser, if not the run a few audits with the top 3 and capture some key performance metrics.
+
+| Browser          | First Paint | First Meaningful Paint | Speed Index | Time to Intractive |
+| ---------------- | ----------- | ---------------------- | ----------- | ------------------ |
+| Chrome           | 4.0s        | 4.6s                   | 5.2s        | 6.0s               |
+| Safari           | 3.8s        | 4.4s                   | 5.0s        | 5.8s               |
+| Samsung Internet | 4.1s        | 4.5s                   | 5.5s        | 6.2s               |
+
+If you don't have analytics data, then we need to fallback on browsers data research to best determine the representative browser instead.
+
+---
