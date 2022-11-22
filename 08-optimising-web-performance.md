@@ -85,3 +85,101 @@ Use `picture` element to allow more granular control on when we can switch an im
 Improvement to speed index and Largest Contentful Paint. The View Port content, which these metrics measure is also completing much faster. Very good for the website's perceived performance.
 
 ---
+
+## Image Optimization
+
+**General Optimization**
+
+- Using ImageOptim in Mac we can remove unnecessary data, such as metadata, thumbnails and core profiles which aren't needed on web
+
+Can automate that process with **Gulp**
+
+In `gulpfile.esm.js` root file:
+
+```
+function clean(){
+  return glob('./www/*.{html,jpg,svg, webp}, {}, function(er, files ){
+    for(let file in files){
+      rimraf(files[file], () => {});
+    }
+  })
+}
+```
+
+`npm install --save-dev gulp-imagemin
+
+```
+function compressImages(){
+  return gulp.src('src/img/**/*')
+  .pipe(imagemin([
+    imagemin.mozjpeg({quality: 75, progressive: true})
+  ]))
+  .pipe(gulp.dist('www/img'))
+}
+```
+
+```
+function createWebP(){
+  return gulp.src('www/img/*.jpg')
+  .pipe(imagemin[
+    imageinWebp()
+  ])
+  .pipe(rename(function(path){
+    path.extname = '.webp';
+  }))
+  .pipe(gulp.dest('www/img))
+}
+```
+
+```
+const build = gulp.series(clean, compileNumjucks, compressImages, createWebP)
+```
+
+```
+gulp build
+```
+
+**Progressive JPEGs**
+
+Turning a passive wait into an active one.
+
+**WebP Format**
+
+This grabs all compressed JPEGs from the root `www` directory, creates a new WebP version for each of them and then uses the same filename with a different extension before saving them to the same directory.
+
+We should keep the JPEG originals because not all browsers support WebPs. Because for browsers like Safari we need to server the original JPEGs.
+
+Also WebPs don't support progressive loading.
+
+**Server level config**
+
+To serve the JPEG or WebP
+
+---
+
+**AnimatedGIFs**
+
+Can be huge in file size. Can convert them to video in which for the modern web are much more optimized with a much lower file size.
+
+Can be done using **FFmpeg**
+
+```
+ffmpeg -i www/img/dog.gif -b:v 0 -crf 25 -f mp4 -vcodec libx264 -pix_fmt yuv420p www/img/dog.mp4
+```
+
+Overall there is a serving of around 95% in file size between the GIF and video formats, which will do wonders for load times.
+
+Like WebP, there is also WebM video format.
+
+Replace the GIFs with video elements.
+
+```
+<video class="float-right ml-3 mb-3" autoplay loop muted playinline>
+  <source src="/img/dog2.webp" type="video/webm">
+  <source src="/img/dog2.mp4" type="video/mp4">
+</video>
+```
+
+Overall downloads drop significantly
+
+---
