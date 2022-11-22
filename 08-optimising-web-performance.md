@@ -52,3 +52,36 @@ The website's rending speed is improved, which can be seen in a video comparison
 Time to interactive metric has been reduced by nearly a quarter. This is because like with CSS, we downloading from the same server. In addition one of the prerequisites is that page content is visible.
 
 ---
+
+## Image Resizing
+
+PNG format isn't very efficient as these formats are typically more suited to icons, illustrations and other similar image types.
+
+Should change to JPEG
+
+We can reduce the file size of the website by trimming down dimensions of images.
+
+**Resize**
+
+Appropriate image size depends on the device. Should create to variants of this JPEG, one for desktop and one for mobile.
+
+- 1110 px wide for desktop, the size of the images container.
+
+- 375p px wide for mobile, roughly between mobile and tablet viewport sizes.
+
+**Implementation**
+
+Use `picture` element to allow more granular control on when we can switch an image to it's smaller mobile variant and vice versa.
+
+```
+<picture>
+  <source srcset="img/slide1-sm1.jpg" type="image/jpg" media="(max-width: 768px)">
+  <img src="img/slide1.jpg" alt="MLE Power wind turbine at work" >
+</picture>
+```
+
+**Comparison**
+
+Improvement to speed index and Largest Contentful Paint. The View Port content, which these metrics measure is also completing much faster. Very good for the website's perceived performance.
+
+---
