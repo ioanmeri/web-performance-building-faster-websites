@@ -257,3 +257,31 @@ Currently only supported in Chrome.
 Preload is better suited to loading a page's own critical resources
 
 ---
+
+## Async / Defer JavaScript
+
+HTML Parsing is paused when the browser finds a script element until this request is completed and the script is executed.
+
+This makes JavaScript a blocking resource as it delays rendering.
+
+**DEFER**
+
+Delays JavaScript execution until after the HTML has been fully parsed.
+
+```
+<script src="script.js" defer></script>
+```
+
+The HTML parser pause is no longer required, meaning the script is no longer render blocking.
+
+**ASYNC**
+
+Very similar except that JavaScript execution happens as soon is able to, parallel to the HTML parsing.
+
+```
+<script src="script.js" async></script>
+```
+
+Best suited for JavaScript which doesn't require a complete DOM or a dependency of other scripts
+
+---
