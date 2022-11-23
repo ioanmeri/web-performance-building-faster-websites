@@ -182,4 +182,78 @@ Replace the GIFs with video elements.
 
 Overall downloads drop significantly
 
+**Comparison**
+
+Time to interactive is smaller by 15%
+
+---
+
+## Resource Hints
+
+**Resource hints** are a way we can improve performance by telling the browser is needs to make connections to other domains or download content before it normally would.
+
+Giving the browser a hot tip of what's to come.
+
+You create resource hints in the head of HTML document using a link element like:
+
+```
+<link rel="preconnect" href="https://www.domain.com">
+```
+
+**DNS Prefetch**
+
+Perform a DNS lookup on a domain
+
+```
+<link rel="dns-prefetch" href="https://www.3rd-party.com/">
+```
+
+**Preconnect**
+
+Like DNS prefetch but the browser the goes on to make the TCP handshake and optional TLS handshake.
+
+```
+<link rel="preconnect" href="https://www.3rd-party.com">
+```
+
+Allows the browser to ready a full connection early.
+
+**Prefetch**
+
+We can tell the browser using a prefetch resource hint that it should download and cache the file in preparation - CSS JS HTML.
+
+```
+<link rel="prefetch" href="https://www.3rd-party.com/3rd-party.js" as="script">
+```
+
+Not supported by Safari
+
+Browser has determines if it has more important resources to load
+
+**Preload**
+
+Very similar to prefetch except that is no longer a suggestion, it's an order.
+
+```
+<link rel="preload" href="https://www.3rd-party.com/3rd-party.js" as="script">
+```
+
+Firefox doesn't support it
+
+**Prerender**
+
+The most extensive resource hint.
+
+In addition to opening a connection and downloading the pages HTML, the browser goes on to parse it's content and then download and execute it's discovered resources as well.
+
+```
+<link rel="prerender" href="https://example.com/other-page">
+```
+
+Prerender is best used where you can predict the user's next move with the high level of accuracy, like results page following a search or a multi step checkout journey.
+
+Currently only supported in Chrome.
+
+Preload is better suited to loading a page's own critical resources
+
 ---
