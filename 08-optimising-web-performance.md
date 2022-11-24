@@ -307,3 +307,25 @@ accept-encoding: randomstring
 Going from compressed with gzip and BROTLI to uncompressed means 275% more bytes being transfered.
 
 ---
+
+## Text Asset Optimization
+
+By bundling the CSS and JS into single files will help the browser to download them faster.
+
+This is because compression formats like GZIP and BROTLI, work better on larger files.
+
+**CSS**
+
+Bundle CSS into a single file using Sass.
+
+Because Sass is a pre-processor language, it needs to be compiled to CSS.
+
+Can install the Sass dependencies with gulp
+
+**JavaScript**
+
+In the global .js file, include the other scripts on the top.
+
+Can use rollup to bundle files.
+
+---
