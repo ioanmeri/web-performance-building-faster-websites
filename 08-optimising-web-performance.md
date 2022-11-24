@@ -285,3 +285,25 @@ Very similar except that JavaScript execution happens as soon is able to, parall
 Best suited for JavaScript which doesn't require a complete DOM or a dependency of other scripts
 
 ---
+
+## Text Compression
+
+When text assets like HTML CSS and JS are sent from the server to the browser you can compress it with **gzip**
+
+The other widely used format is **BROTLI** which was developed by Google and allows you to achieve even greater levels of compression.
+
+Typically the larger the file, the higher the compression level.
+
+Both gzip and BROTLI are supported by Apache and NGINX.
+
+In WebPageTest can disable compression with:
+
+custom headers:
+
+```
+accept-encoding: randomstring
+```
+
+Going from compressed with gzip and BROTLI to uncompressed means 275% more bytes being transfered.
+
+---
