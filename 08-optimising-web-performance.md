@@ -382,3 +382,29 @@ we can add the media attribute so the browser knows how to preload each.
 ```
 
 ---
+
+## Google Fonts Optimization
+
+Google Fonts is the most popular way of including no standard fonts on the website out of the box. Performance is already quite good.
+
+The request returns CSS font-face rules which the browser can the use to download WOFF2 files, which modern browsers is the format most commonly used for web fonts.
+
+These are then applied to the pages text, provided the correct family CSS
+
+Google Font files are what is called, late discovered resources.
+
+We can at least preconnect to the domain, to get the network negotiation out of the way, as early as possible.
+
+```
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+```
+
+You need `crossorigin` to satisfy the font-face specification.
+
+Another popular recommendation is to preload the initial CSS:
+
+```
+<link rel="preload" href="https://fonts.googleapis.com/...">
+```
+
+---
