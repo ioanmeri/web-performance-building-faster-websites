@@ -329,3 +329,56 @@ In the global .js file, include the other scripts on the top.
 Can use rollup to bundle files.
 
 ---
+
+## Critical CSS
+
+If we look at the waterfall view, CSS is now the only remaining render blocking resource preventing the critical rendering path from completing immediately.
+
+This is CSS default behavior as if page render wasn't blocking until CSS is downloaded and parsed, the page would render before the browser knows how to style it and you would experienced what's called flash un-styled content.
+
+However, there is a way to stop CSS blocking page render AND sidestep the flash un-styled content issue.
+
+This is done by determining the bare minimum CSS required to style the content in initial viewport, as that all users sees as the page is loading. We then **separate this critical CSS from the rest** and **display it inline** in HTML document directly.
+
+This removes CSS from the critical rendering path entirely, solving the render blocking problem.
+
+How do you separate critical CSS from non critical, and make the latter load asynchronously?
+
+```
+npm i critical
+```
+
+import it into the `gulp` and use the task:
+
+```
+function generateCriticalCSS(){
+  return glob('./www/*.html', {}, function(er, files){
+    for(let file in files){
+      const filename = path.basename(files(file));
+      critical.generate({
+        inline: true,
+        base: 'www/',
+        targe: filename,
+        width: 1300,
+        height: 900,
+        ignore: {
+          arule: ['@font-face']
+        }
+      })
+    }
+  }
+}
+```
+
+We can use the preload resource hint to force the browser load this critical images sooner - logo and hamburger icon.
+
+That's how we should be able to improve our websites perceived performance even if it doesn't impact the actual performance at all.
+
+we can add the media attribute so the browser knows how to preload each.
+
+```
+<link rel="preload" href="/img/slide1-sm1.jpg" as="image" media="(max-width: 768px)">
+<link rel="preload" href="/img/slide1.jpg" as="image" media="(min-width: 769px)">
+```
+
+---
