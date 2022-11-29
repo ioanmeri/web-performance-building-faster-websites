@@ -408,3 +408,67 @@ Another popular recommendation is to preload the initial CSS:
 ```
 
 ---
+
+## Self-Hosted Fonts
+
+An alternative to using Google Fonts, is hosting them ourselves.
+
+Self-hosted fonts open the do to more optimizations, as we now we have control how these fonts are downloaded, during the loading process.
+
+**Setup Self Hosted**
+
+- Create a new directory in the root, called fonts
+
+- Download Lato, grab the links from Google font CSS and download all files
+
+- Copy the font-face CSS from google-webfonts-helper and copy it in the `style.scss`
+
+- Download the files
+
+```
+@font-face {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lato italic'), local('Lato-Italic'),
+      url('/fonts/lato-v17-latin-italic.woff2') format('woff2'),
+      url('/fonts/lato-v17-latin-italic.woff') format('woff'),
+}
+```
+
+the `local` function, all it does is tell the browser that if the user already has this font installed locally on their machine, don't waste time re-downloading it.
+
+Flash of invisible text it's happening because of how browsers load fonts, which can be controlled by a CSS property, which is called `font-display`
+
+The value `swap` tells the browser to display text using the next available fallback font, until the primary choice is fully downloaded.
+
+The period where the fallback font is used is typically called the flash of unstyled text.
+
+For Google fonts CSS the swap is already there.
+
+**Preload Google Fonts**
+
+```
+<link rel="preload" href="/fonts/lato-v17-lato-700.woff" as="font" type"font/woff" crossorigin>
+```
+
+The `type` attribute is used to tell the browser, that if it doesn't support this format, it can ignore this preload. In that instance, it will then hit the second preload to the standard woff format, which it will support.
+
+We can remove the web fonts preload if the performance it's not better
+
+**System Fonts**
+
+Already use in the device
+
+Typically used by a font face like this:
+
+```
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+}
+```
+
+Bootstrap has system fonts by default
+
+---
