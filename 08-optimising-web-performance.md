@@ -472,3 +472,33 @@ html {
 Bootstrap has system fonts by default
 
 ---
+
+## Lazy Loading
+
+Lazy loading allows to defer the loading of assets until they are in the viewport and visible to the user
+
+This means we only download what we need.
+
+**Lazy Loading Images**
+
+In Chrome, Edge, FireFox just add the `lazy` attribute.
+
+Native lazy loading isn't only supported by Chromium or FireFox
+
+Cannot polyfill the functionality 100%, can install the polyfill module.
+
+**Lazy Loading iframes**
+
+Can use the same attribute as images `lazy`, can really minimize the amount of bytes downloaded during first load
+
+Only Chromium browser support this
+
+**Minimizing Content Shift**
+
+We can add `width` and `height` attributes to the image.
+
+So that the image can be properly sized before it's downloaded.
+
+Also applies to video elements
+
+---
