@@ -541,3 +541,71 @@ and add it to the build task.
 You can add a safelist with regex patterns in purge CSS for e.g. to ignore carousel dynamic elements.
 
 ---
+
+## Remove unused JavaScript
+
+Use a similar approach to the one taken with CSS.
+
+Instead of having one `global.js` file, which every page download. Each page will have each one file containing only what it needs.
+
+**Create Partials**
+
+For `index.js` page
+
+Can add the header logic into each own file within the partials directory and do the same for the scrolling function.
+
+**Import JavaScript**
+
+`index.js`
+
+```
+import './partials/shared';
+import 'jquery';
+import 'popper.js'
+import '../node_modules/bootstrap/js/scr/carousel';
+import '../node_modules/bootstrap/js/scr/collapse';
+import './partials/scrollTo';
+```
+
+**Update Nunjucks Task**
+
+**Update JavaScript Task**
+
+```
+async function bundleJavaScript(){
+  return glob('./www/*.html', {}, async function(er, files){
+    for(let file in files){
+      let filename = path.basename(files[file], '.html');
+      let file_path = './src/js/${filename}.js';
+      if(!fs.existsSync(file.path)){
+        file_path = './src/js/default.js';
+        filename = 'default';
+      }
+      const bundle = await rollup.rollup({
+        input: file_path,
+        plugins: [nodeResolve(), terser()]
+      })
+      await bundle.write({
+        file: "./www/${filename}.js',
+        format: 'iife'
+      })
+    }
+  })
+}
+```
+
+**Update bootstrap**
+
+to v5 as it doesn't use jquery but vanilla JS and can remove the jquery dependency
+
+Tracking scripts can include a performance cost. Measure the website's performance without the script as then a cost-benefit analysis can be run to determine if the script is worth keeping.
+
+Can do this in WebPageTest with the block tab.
+
+The report generated will skill the report completely.
+
+> Zalando saw a 0.7% increase in revenue when thy shaved 100ms off their load time.
+
+Without the tracking script, the biggest difference in comparison is the time to interactive metric which is nearly 75% faster without hotjar.
+
+---
