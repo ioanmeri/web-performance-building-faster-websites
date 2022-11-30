@@ -502,3 +502,42 @@ So that the image can be properly sized before it's downloaded.
 Also applies to video elements
 
 ---
+
+## Remove Unused CSS
+
+In **Chrome Dev Tools > Coverage** we can see the unused CSS.
+
+**Update HTML**
+
+Each page should use it's own CSS
+
+**Duplicate CSS**
+
+Duplicate `style.css` for each page.
+
+**Filter Unused CSS**
+
+Can automate this process with a module called `PurgeCSS`
+
+Example in gulp:
+
+```
+function removeUnusedCSS(){
+  return glob('./www/*.html', {}, function(er), files){
+    for(let file in files){
+      const filename = path.basename(files[file], '.html')
+      gulp.src('./www/${filename}.css)
+      .pipe(purgeCSS({
+        content: [`./www/${filename}.html`]
+      }))
+      .pipe(gulp.dest('./www/'))
+    }
+  }
+}
+```
+
+and add it to the build task.
+
+You can add a safelist with regex patterns in purge CSS for e.g. to ignore carousel dynamic elements.
+
+---
