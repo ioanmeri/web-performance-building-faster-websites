@@ -609,3 +609,72 @@ The report generated will skill the report completely.
 Without the tracking script, the biggest difference in comparison is the time to interactive metric which is nearly 75% faster without hotjar.
 
 ---
+
+## Caching Strategies
+
+Briefly touch upon the repeat load.
+
+One way to improve loading performance of repeat loads, is to cache our static assets more effectively, meaning indefinitely.
+
+**Htaccess Changes**
+
+```
+<Ifmodule mod_headers.c>
+  Header set Connection keep-alive
+  Header unset ETag
+  <FilesMatch "\.(jpg|jpeg|gif|png|webp|svg|css|js|ico|woff|woff2)">
+    Header set Cache-Control "max-age=31560000, immutable"
+  </FilesMatch>
+```
+
+`ETag` header stops caches and browsers from being able to validate files. Which forces them to rely on a `cache-control` policy.
+
+We give the cached files a very long age max age via a cache-control header.
+
+`immutable` meaning these assets won't change.
+
+Can check the Cache-Control header in Chrome Network tab
+
+To deal with files changes with static asset revisioning.
+
+**Static Asset Revisioning**
+
+Means appending a hash of the files contents to each filename, which is completely unique to the file.
+
+```
+index-4511748f41.css
+```
+
+This approach allows to cache files indefinitely but also download updates as they are deployed.
+
+**Update Filenames**
+
+Example revision gulp task:
+
+```
+function revision(){
+  return gulp.src('./www/**/*.*(jpg|jpeg|svg|css|js|woff|woff2))
+  .pipe(rev())
+  .pipe(revDelete())
+  .pipe(gulp.dest('./www/'))
+  .pipe(rev.manifest())
+  .pipe(gulp.dest('./www/));
+}
+```
+
+**Update File References**
+
+New gulp task rewrite refs:
+
+Scan html and css files for references to our now revised static assets and update them to the correct paths
+
+```
+function rewriteRefs(){
+  const manifest = gulp.src('./www/rev-manifest.json');
+  return gulp.src('./www/*.(html,css')
+  .pipe(revRewrite(manifest))
+  .pipe(gulp.dest('./www/));
+}
+```
+
+---
